@@ -1,20 +1,26 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 
-void print(string s){
-	set<string> se;
+void remove(string s){
 	stringstream ss(s);
-	string tmp="";
+	string tmp;
+	set <string> appeared;
+	vector<string> v;
 	while(ss>>tmp){
-		se.insert(tmp);
+		if(appeared.find(tmp) == appeared.end()){
+			appeared.insert(tmp);
+			v.push_back(tmp);
+		}
 	}
-	for(int i=0;i<se.size();i++){
-		cout<<se[i]<<" ";
+	for(string item: v){
+		cout<<item<<" ";
 	}
+	
+	
 }
 
-
 int main(){
-	string s="lap   trinh   python  java python c lap trinh ";
-	print(s);
+	string s="lap   trinh   python          java python c lap trinh trinh ";
+	remove(s);
 }
